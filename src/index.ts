@@ -22,7 +22,7 @@ AppDataSource.initialize()
 
 	app.post("/test", (req, res) => {
 		console.log(req.body)
-		res.redirect("/")
+		res.redirect("back")
 	})
   })
   .catch((error) => console.log(error));
