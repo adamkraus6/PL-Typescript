@@ -1,7 +1,7 @@
 {
-   "name": "typeorm-sample",
-   "version": "0.0.1",
-   "description": "Awesome project developed with TypeORM.",
+   "name": "pl-typescript",
+   "version": "1.0.0",
+   "description": "Semester Project",
    "type": "commonjs",
    "devDependencies": {
       "ts-node": "10.7.0",
