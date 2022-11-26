@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Add</title>
-	<link rel="stylesheet" href="../styles/styles.css">
-</head>
-<body>
-	<h1>Add information</h1>
-	<!-- TODO: Add new movie -->
-	<!-- TODO: Add new actor -->
-	<!-- TODO: Add new role with dropdown of actors/movies -->
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+      type="text/javascript"
+    ></script>
+    <script src="../add.js"></script>
+  </head>
+  <body>
+    <h1>Add information</h1>
+    <h3>Add new movie</h3>
+    <form action="add/movie" method="post">
+      Title: <input type="text" name="title" /> <br />
+      Released: <input type="date" name="released" /> <br />
+      Genre: <input type="text" name="genre" /> <br />
+      <input type="submit" value="Add movie" />
+    </form>
+    <h3>Add new actor</h3>
+    <form action="add/actor" method="post">
+      Name: <input type="text" name="name" /> <br />
+      <input type="submit" value="Add actor" />
+    </form>
+    <h3>Add role</h3>
+    <form action="add/role" method="post">
+      Actor:
+      <select name="actor" id="actors"></select>
+      <br />
+      Movie:
+      <select name="movie" id="movies"></select>
+      <br />
+      <input type="submit" value="Add role" />
+    </form>
+  </body>
 </html>

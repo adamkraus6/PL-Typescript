@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn, ManyToOne } from "typeorm"
 import { Actor } from "./Actor"
 import { Movie } from "./Movie"
 
@@ -8,10 +8,10 @@ export class Role {
     @PrimaryGeneratedColumn()
     id: number
 
-    @OneToOne(type => Actor) @JoinColumn()
+    @ManyToOne(type => Actor) @JoinColumn()
 	actor: Actor
 
-	@OneToOne(type => Movie) @JoinColumn()
+	@ManyToOne(type => Movie) @JoinColumn()
 	movie: Movie
 
 }
