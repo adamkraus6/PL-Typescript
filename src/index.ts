@@ -5,7 +5,6 @@ import * as bodyparser from "body-parser";
 import { Actor } from "./entity/Actor";
 import { Movie } from "./entity/Movie";
 import { Role } from "./entity/Role";
-import { Equal } from "typeorm";
 
 const PORT: number = 3000;
 
