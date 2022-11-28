@@ -22,6 +22,7 @@ AppDataSource.initialize()
       bodyparser.urlencoded({ extended: false })
     );
 
+    // GET pages
     app.get("/", (req, res) => {
       res.sendFile(path.join(__dirname, "/html/index.html"));
     });
@@ -34,6 +35,11 @@ AppDataSource.initialize()
       res.sendFile(path.join(__dirname, "/html/list.html"));
     });
 
+    app.get("/watchlist", (req, res) => {
+      res.sendFile(path.join(__dirname, "/html/watchlist.html"));
+    })
+
+    // GET database
     app.get("/list/actor", async (req, res) => {
       let data = await actorRepo.find();
       res.send(JSON.stringify(data));
@@ -54,6 +60,7 @@ AppDataSource.initialize()
       res.send(JSON.stringify(data));
     });
 
+    // POST database
     app.post("/add/actor", async (req, res) => {
       let actor = new Actor();
       actor.name = req.body.name;
