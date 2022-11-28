@@ -8,9 +8,11 @@
       "target": "es5",
       "module": "commonjs",
       "moduleResolution": "node",
-      "outDir": "./build",
+      "outDir": "src/scripts",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "sourceMap": true
-   }
+   },
+   "include": ["src/scripts/ts/*"],
+   "exclude": []
 }

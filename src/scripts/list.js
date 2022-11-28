@@ -98,3 +98,4 @@ $(function () { return __awaiter(_this, void 0, void 0, function () {
 var capitalize = function (str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 };
+//# sourceMappingURL=list.js.map
