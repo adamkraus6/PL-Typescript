@@ -50,6 +50,23 @@ $(async () => {
 
 		roles.appendChild(tr);
 	});
+
+	let ratings_response = await fetch("http://localhost:3000/list/rating");
+	let ratings_data = await ratings_response.json();
+	let ratings = document.getElementById("rating_table");
+	ratings_data.forEach((rating) => {
+		let tr = document.createElement("tr");
+
+		let movie = document.createElement("td");
+		movie.textContent = rating.movie.title;
+		tr.appendChild(movie);
+
+		let rating_td = document.createElement("td");
+		rating_td.textContent = rating.rating;
+		tr.appendChild(rating_td);
+
+		ratings.appendChild(tr);
+	});
 });
 
 let capitalize = (str: string) => {

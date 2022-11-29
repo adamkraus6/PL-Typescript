@@ -12,10 +12,13 @@ $(async () => {
 	let movies_response = await fetch("http://localhost:3000/list/movie");
 	let movies_data = await movies_response.json();
 	let movies = document.getElementById("movies");
+	let movies2 = document.getElementById("movies2");
 	movies_data.forEach((movie) => {
 		let opt = document.createElement("option");
-		opt.value = movie.title;
-		opt.text = movie.title;
+		let opt2 = document.createElement("option");
+		opt2.value = opt.value = movie.title;
+		opt2.text = opt.text = movie.title;
 		movies.appendChild(opt);
+		movies2.appendChild(opt2);
 	});
 });

@@ -1,10 +1,4 @@
-import {
-	Entity,
-	PrimaryGeneratedColumn,
-	OneToOne,
-	JoinColumn,
-	ManyToOne,
-} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, JoinColumn, ManyToOne } from "typeorm";
 import { Actor } from "./Actor";
 import { Movie } from "./Movie";
 

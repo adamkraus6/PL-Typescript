@@ -5,6 +5,7 @@ import * as bodyparser from "body-parser";
 import { Actor } from "./entity/Actor";
 import { Movie } from "./entity/Movie";
 import { Role } from "./entity/Role";
+import { Rating } from "./entity/Rating";
 
 const PORT: number = 3000;
 
@@ -13,6 +14,7 @@ AppDataSource.initialize()
 		const actorRepo = AppDataSource.getRepository(Actor);
 		const movieRepo = AppDataSource.getRepository(Movie);
 		const roleRepo = AppDataSource.getRepository(Role);
+		const ratingRepo = AppDataSource.getRepository(Rating);
 
 		const app = express();
 
@@ -60,6 +62,15 @@ AppDataSource.initialize()
 			res.send(JSON.stringify(data));
 		});
 
+		app.get("/list/rating", async (req, res) => {
+			let data = await ratingRepo.find({
+				relations: {
+					movie: true,
+				},
+			});
+			res.send(JSON.stringify(data));
+		});
+
 		// POST database
 		app.post("/add/actor", async (req, res) => {
 			let actor = new Actor();
@@ -89,9 +100,26 @@ AppDataSource.initialize()
 				},
 			});
 			let role = new Role();
-			role.actor = actor;
-			role.movie = movie;
-			await roleRepo.save(role);
+			if (actor != null && movie != null) {
+				role.actor = actor;
+				role.movie = movie;
+				await roleRepo.save(role);
+			}
+			res.redirect("back");
+		});
+
+		app.post("/add/rating", async (req, res) => {
+			let movie = await movieRepo.findOne({
+				where: {
+					title: req.body.movie,
+				},
+			});
+			if (movie != null) {
+				let rating = new Rating();
+				rating.rating = req.body.rating;
+				rating.movie = movie;
+				await ratingRepo.save(rating);
+			}
 			res.redirect("back");
 		});
 
