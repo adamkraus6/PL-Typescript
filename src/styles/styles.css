@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind&display=swap");
+
 ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #333;
+	background-color: #8ca3a3;
 }
 
 li {
@@ -19,10 +21,50 @@ li a {
 }
 
 li a:hover {
-	background-color: #111;
+	background-color: #484f4f;
 }
 
 * {
 	margin: 0;
 	padding: 0;
+	font-family: Hind;
+}
+
+h1 {
+	text-align: center;
+	margin: 5pt;
+	color: #563f46;
+}
+
+h3 {
+	margin: 5pt;
+	text-align: center;
+	color: #563f46;
+}
+
+td {
+	text-align: left;
+	padding: 2pt;
+}
+
+th,
+td {
+	border-bottom: 1px solid black;
+}
+
+tr:nth-child(even) {
+	background-color: #c6bcb6;
+}
+
+tr:nth-child(even):hover {
+	background-color: #96897f;
+}
+
+tr:hover {
+	background-color: #e0e2e4;
+}
+
+table {
+	width: 50%;
+	border-collapse: collapse;
 }
