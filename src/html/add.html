@@ -18,22 +18,25 @@
 		<h1>Add information</h1>
 		<h3>Add new movie</h3>
 		<form action="add/movie" method="post">
-			Title: <input type="text" name="title" /> <br />
-			Released: <input type="date" name="released" /> <br />
-			Genre: <input type="text" name="genre" /> <br />
+			<h4>Title:</h4>
+			<input type="text" name="title" /><br />
+			<h4>Released:</h4>
+			<input type="date" name="released" /><br />
+			<h4>Genre:</h4>
+			<input type="text" name="genre" /><br />
 			<input type="submit" value="Add movie" />
 		</form>
 		<h3>Add new actor</h3>
 		<form action="add/actor" method="post">
-			Name: <input type="text" name="name" /> <br />
+			<h4>Name:</h4>
+			<input type="text" name="name" /> <br />
 			<input type="submit" value="Add actor" />
 		</form>
 		<h3>Add role</h3>
 		<form action="add/role" method="post">
-			Actor:
+			<h4>Actor:</h4>
 			<select name="actor" id="actors"></select>
-			<br />
-			Movie:
+			<h4>Movie:</h4>
 			<select name="movie" id="movies"></select>
 			<br />
 			<input type="submit" value="Add role" />
