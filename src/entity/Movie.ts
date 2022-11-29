@@ -1,18 +1,16 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity()
 export class Movie {
-
-    @PrimaryGeneratedColumn()
-    id: number
-
-    @Column()
-    title: string
+	@PrimaryGeneratedColumn()
+	id: number;
 
 	@Column()
-	released: Date
+	title: string;
 
 	@Column()
-	genre: string
+	released: Date;
 
+	@Column()
+	genre: string;
 }
