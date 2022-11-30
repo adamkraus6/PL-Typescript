@@ -1,9 +1,9 @@
 import "reflect-metadata";
+import { Actor } from "./entity/Actor";
 import { DataSource } from "typeorm";
 import { Movie } from "./entity/Movie";
-import { Actor } from "./entity/Actor";
+import { Rating } from "./entity/Rating";
 import { Role } from "./entity/Role";
-import { Rating } from "./entity/Rating"
 
 export const AppDataSource = new DataSource({
 	type: "mysql",

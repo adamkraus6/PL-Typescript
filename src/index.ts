@@ -1,11 +1,11 @@
+import { Actor } from "./entity/Actor";
 import { AppDataSource } from "./data-source";
+import { Movie } from "./entity/Movie";
+import { Rating } from "./entity/Rating";
+import { Role } from "./entity/Role";
+import * as bodyparser from "body-parser";
 import * as express from "express";
 import * as path from "path";
-import * as bodyparser from "body-parser";
-import { Actor } from "./entity/Actor";
-import { Movie } from "./entity/Movie";
-import { Role } from "./entity/Role";
-import { Rating } from "./entity/Rating";
 
 const PORT: number = 3000;
 
