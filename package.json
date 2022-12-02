@@ -18,6 +18,7 @@
 		"typeorm": "0.3.10"
 	},
 	"scripts": {
+		"prestart": "tsc",
 		"start": "ts-node src/index.ts",
 		"typeorm": "typeorm-ts-node-commonjs",
 		"format": "prettier --write ."
