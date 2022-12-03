@@ -16,7 +16,7 @@
 	<body>
 		<div id="menu"></div>
 		<h1>Watchlist</h1>
-		<h3>Add Filter:</h4>
+		<h3>Add Filter:</h3>
 		<form action="add/filter" method="post">
 			<h4>Filter Type:</h4>
 			<select name="filterType">
@@ -25,17 +25,18 @@
 				<option value="released">Release Date</option>
 			</select>
 			<h4>Genre:</h4>
-			<select name="genre" id="genres">
-				<option value="testGenre">Test Genre</option>
-			</select>
+			<select name="genre" id="genres"></select>
 			<h4>Title Contains:</h4>
-			<input type="text" name="title">
+			<input type="text" name="title" />
 			<h4>Release Date:</h4>
-			<input type="date" name="dateFrom"> to <input type="date" name="dateTo">
-			<br>
-			<input type="submit" value="Add Filter">
+			<input type="date" name="dateFrom" /> to
+			<input type="date" name="dateTo" />
+			<br />
+			<input type="submit" value="Add Filter" />
+			<!-- TODO: Add filters on actors starring -->
+			<!-- TODO: Add filters on movie rating -->
 		</form>
-		<h3>Current Filters:</h4>
+		<h3>Current Filters:</h3>
 		<table id="filter-table">
 			<tr>
 				<th>Filter ID</th>
@@ -45,9 +46,9 @@
 		<h3>Delete Filter:</h3>
 		<form action="del/filter" method="post">
 			<h4>Filter ID</h4>
-			<input type="number" name="filterID" min="0" value="0">
-			<br>
-			<input type="submit" value="Delete Filter">
+			<input type="number" name="filterID" min="0" value="0" />
+			<br />
+			<input type="submit" value="Delete Filter" />
 		</form>
 		<h3>Filtered Movies:</h3>
 		<table id="filtered-movie-table">

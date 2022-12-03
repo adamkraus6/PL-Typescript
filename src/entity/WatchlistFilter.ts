@@ -6,17 +6,17 @@ export class WatchlistFilter {
 	id: number;
 
 	@Column()
-	filterType: string
+	filterType: string;
 
-	@Column({default: null})
-	genre: string
+	@Column({ default: null })
+	genre: string;
 
-	@Column({default: null})
-	title: string
+	@Column({ default: null })
+	title: string;
 
-	@Column({default: null})
-	dateFrom: Date
+	@Column({ default: null })
+	dateFrom: Date;
 
-	@Column({default: null})
-	dateTo: Date
+	@Column({ default: null })
+	dateTo: Date;
 }

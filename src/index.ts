@@ -3,10 +3,10 @@ import { AppDataSource } from "./data-source";
 import { Movie } from "./entity/Movie";
 import { Rating } from "./entity/Rating";
 import { Role } from "./entity/Role";
+import { WatchlistFilter } from "./entity/WatchlistFilter";
 import * as bodyparser from "body-parser";
 import * as express from "express";
 import * as path from "path";
-import { WatchlistFilter } from "./entity/WatchlistFilter";
 
 const PORT: number = 3000;
 
@@ -133,7 +133,7 @@ AppDataSource.initialize()
 		app.post("/add/filter", async (req, res) => {
 			let filter = new WatchlistFilter();
 			let { filterType, genre, dateFrom, dateTo, title } = req.body;
-			filter.filterType = filterType
+			filter.filterType = filterType;
 			switch (filterType) {
 				case "genre":
 					if (genre) {

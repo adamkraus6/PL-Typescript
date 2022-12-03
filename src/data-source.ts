@@ -4,7 +4,7 @@ import { DataSource } from "typeorm";
 import { Movie } from "./entity/Movie";
 import { Rating } from "./entity/Rating";
 import { Role } from "./entity/Role";
-import { WatchlistFilter } from "./entity/WatchlistFilter"
+import { WatchlistFilter } from "./entity/WatchlistFilter";
 
 export const AppDataSource = new DataSource({
 	type: "mysql",

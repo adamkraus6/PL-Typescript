@@ -18,9 +18,10 @@
 		"typeorm": "0.3.10"
 	},
 	"scripts": {
-		"prestart": "tsc",
+		"prestart": "npm run format && npm run ts-compile",
 		"start": "ts-node src/index.ts",
 		"typeorm": "typeorm-ts-node-commonjs",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"ts-compile": "tsc"
 	}
 }
