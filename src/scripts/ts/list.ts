@@ -1,7 +1,7 @@
 $(async () => {
 	let actors_response = await fetch("http://localhost:3000/list/actor");
 	let actors_data = await actors_response.json();
-	let actors = document.getElementById("actor_table");
+	let actors = document.getElementById("actor-table");
 	actors_data.forEach((actor) => {
 		let tr = document.createElement("tr");
 
@@ -14,7 +14,7 @@ $(async () => {
 
 	let movies_response = await fetch("http://localhost:3000/list/movie");
 	let movies_data = await movies_response.json();
-	let movies = document.getElementById("movie_table");
+	let movies = document.getElementById("movie-table");
 	movies_data.forEach((movie) => {
 		let tr = document.createElement("tr");
 
@@ -36,7 +36,7 @@ $(async () => {
 
 	let roles_response = await fetch("http://localhost:3000/list/role");
 	let roles_data = await roles_response.json();
-	let roles = document.getElementById("role_table");
+	let roles = document.getElementById("role-table");
 	roles_data.forEach((role) => {
 		let tr = document.createElement("tr");
 
@@ -53,7 +53,7 @@ $(async () => {
 
 	let ratings_response = await fetch("http://localhost:3000/list/rating");
 	let ratings_data = await ratings_response.json();
-	let ratings = document.getElementById("rating_table");
+	let ratings = document.getElementById("rating-table");
 	ratings_data.forEach((rating) => {
 		let tr = document.createElement("tr");
 

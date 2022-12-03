@@ -4,6 +4,7 @@ import { DataSource } from "typeorm";
 import { Movie } from "./entity/Movie";
 import { Rating } from "./entity/Rating";
 import { Role } from "./entity/Role";
+import { WatchlistFilter } from "./entity/WatchlistFilter"
 
 export const AppDataSource = new DataSource({
 	type: "mysql",
@@ -14,7 +15,7 @@ export const AppDataSource = new DataSource({
 	database: "pl",
 	synchronize: true,
 	logging: false,
-	entities: [Movie, Actor, Role, Rating],
+	entities: [Movie, Actor, Role, Rating, WatchlistFilter],
 	migrations: [],
 	subscribers: [],
 });

@@ -6,6 +6,7 @@ import { Role } from "./entity/Role";
 import * as bodyparser from "body-parser";
 import * as express from "express";
 import * as path from "path";
+import { WatchlistFilter } from "./entity/WatchlistFilter";
 
 const PORT: number = 3000;
 
@@ -15,6 +16,7 @@ AppDataSource.initialize()
 		const movieRepo = AppDataSource.getRepository(Movie);
 		const roleRepo = AppDataSource.getRepository(Role);
 		const ratingRepo = AppDataSource.getRepository(Rating);
+		const filterRepo = AppDataSource.getRepository(WatchlistFilter);
 
 		const app = express();
 
@@ -71,7 +73,12 @@ AppDataSource.initialize()
 			res.send(JSON.stringify(data));
 		});
 
-		// POST database
+		app.get("/list/filter", async (req, res) => {
+			let data = await filterRepo.find();
+			res.send(JSON.stringify(data));
+		});
+
+		// POST add database
 		app.post("/add/actor", async (req, res) => {
 			let actor = new Actor();
 			actor.name = req.body.name;
@@ -120,6 +127,42 @@ AppDataSource.initialize()
 				rating.movie = movie;
 				await ratingRepo.save(rating);
 			}
+			res.redirect("back");
+		});
+
+		app.post("/add/filter", async (req, res) => {
+			let filter = new WatchlistFilter();
+			let { filterType, genre, dateFrom, dateTo, title } = req.body;
+			filter.filterType = filterType
+			switch (filterType) {
+				case "genre":
+					if (genre) {
+						filter.genre = genre;
+						await filterRepo.save(filter);
+					}
+					break;
+				case "title":
+					if (title) {
+						filter.title = title;
+						await filterRepo.save(filter);
+					}
+					break;
+				case "released":
+					if (dateFrom && dateTo) {
+						filter.dateFrom = dateFrom;
+						filter.dateTo = dateTo;
+						await filterRepo.save(filter);
+					}
+					break;
+				default:
+					break;
+			}
+			res.redirect("back");
+		});
+
+		// POST del database
+		app.post("/del/filter", async (req, res) => {
+			await filterRepo.delete(req.body.filterID);
 			res.redirect("back");
 		});
 

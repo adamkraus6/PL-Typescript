@@ -45,7 +45,7 @@ $(function () { return __awaiter(_this, void 0, void 0, function () {
                 return [4 /*yield*/, actors_response.json()];
             case 2:
                 actors_data = _a.sent();
-                actors = document.getElementById("actor_table");
+                actors = document.getElementById("actor-table");
                 actors_data.forEach(function (actor) {
                     var tr = document.createElement("tr");
                     var name = document.createElement("td");
@@ -59,7 +59,7 @@ $(function () { return __awaiter(_this, void 0, void 0, function () {
                 return [4 /*yield*/, movies_response.json()];
             case 4:
                 movies_data = _a.sent();
-                movies = document.getElementById("movie_table");
+                movies = document.getElementById("movie-table");
                 movies_data.forEach(function (movie) {
                     var tr = document.createElement("tr");
                     var title = document.createElement("td");
@@ -80,7 +80,7 @@ $(function () { return __awaiter(_this, void 0, void 0, function () {
                 return [4 /*yield*/, roles_response.json()];
             case 6:
                 roles_data = _a.sent();
-                roles = document.getElementById("role_table");
+                roles = document.getElementById("role-table");
                 roles_data.forEach(function (role) {
                     var tr = document.createElement("tr");
                     var movie = document.createElement("td");
@@ -97,7 +97,7 @@ $(function () { return __awaiter(_this, void 0, void 0, function () {
                 return [4 /*yield*/, ratings_response.json()];
             case 8:
                 ratings_data = _a.sent();
-                ratings = document.getElementById("rating_table");
+                ratings = document.getElementById("rating-table");
                 ratings_data.forEach(function (rating) {
                     var tr = document.createElement("tr");
                     var movie = document.createElement("td");
