@@ -1,7 +1,13 @@
 $(async () => {
 	let actors_response = await fetch("http://localhost:3000/list/actor");
 	let actors_data = await actors_response.json();
+	let movies_response = await fetch("http://localhost:3000/list/movie");
+	let movies_data = await movies_response.json();
+
 	let actors = document.getElementById("actors");
+	let movies = document.getElementById("movies");
+	let movies2 = document.getElementById("movies2");
+
 	actors_data.forEach((actor) => {
 		let opt = document.createElement("option");
 		opt.value = actor.name;
@@ -9,10 +15,6 @@ $(async () => {
 		actors.appendChild(opt);
 	});
 
-	let movies_response = await fetch("http://localhost:3000/list/movie");
-	let movies_data = await movies_response.json();
-	let movies = document.getElementById("movies");
-	let movies2 = document.getElementById("movies2");
 	movies_data.forEach((movie) => {
 		let opt = document.createElement("option");
 		let opt2 = document.createElement("option");

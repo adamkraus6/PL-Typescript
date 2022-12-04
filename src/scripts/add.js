@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 $(function () { return __awaiter(_this, void 0, void 0, function () {
-    var actors_response, actors_data, actors, movies_response, movies_data, movies, movies2;
+    var actors_response, actors_data, movies_response, movies_data, actors, movies, movies2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, fetch("http://localhost:3000/list/actor")];
@@ -45,21 +45,21 @@ $(function () { return __awaiter(_this, void 0, void 0, function () {
                 return [4 /*yield*/, actors_response.json()];
             case 2:
                 actors_data = _a.sent();
-                actors = document.getElementById("actors");
-                actors_data.forEach(function (actor) {
-                    var opt = document.createElement("option");
-                    opt.value = actor.name;
-                    opt.text = actor.name;
-                    actors.appendChild(opt);
-                });
                 return [4 /*yield*/, fetch("http://localhost:3000/list/movie")];
             case 3:
                 movies_response = _a.sent();
                 return [4 /*yield*/, movies_response.json()];
             case 4:
                 movies_data = _a.sent();
+                actors = document.getElementById("actors");
                 movies = document.getElementById("movies");
                 movies2 = document.getElementById("movies2");
+                actors_data.forEach(function (actor) {
+                    var opt = document.createElement("option");
+                    opt.value = actor.name;
+                    opt.text = actor.name;
+                    actors.appendChild(opt);
+                });
                 movies_data.forEach(function (movie) {
                     var opt = document.createElement("option");
                     var opt2 = document.createElement("option");

@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 $(function () { return __awaiter(_this, void 0, void 0, function () {
-    var movies_response, movies_data, movies, genres, genreSelect, filter_response, filter_data, filters, filteredMovies;
+    var movies_response, movies_data, filter_response, filter_data, actors_response, actors_data, roles_response, roles_data, ratings_response, ratings_data, actorSelect, filters, genreSelect, movies, filteredMovies, genres;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, fetch("http://localhost:3000/list/movie")];
@@ -45,26 +45,50 @@ $(function () { return __awaiter(_this, void 0, void 0, function () {
                 return [4 /*yield*/, movies_response.json()];
             case 2:
                 movies_data = _a.sent();
-                movies = document.getElementById("filtered-movie-table");
-                genres = [];
-                movies_data.forEach(function (movie) {
-                    if (!genres.includes(movie.genre))
-                        genres.push(movie.genre);
-                });
-                genreSelect = document.getElementById("genres");
-                genres.forEach(function (genre) {
-                    var opt = document.createElement("option");
-                    opt.value = opt.text = genre;
-                    genreSelect.appendChild(opt);
-                });
                 return [4 /*yield*/, fetch("http://localhost:3000/list/filter")];
             case 3:
                 filter_response = _a.sent();
                 return [4 /*yield*/, filter_response.json()];
             case 4:
                 filter_data = _a.sent();
+                return [4 /*yield*/, fetch("http://localhost:3000/list/actor")];
+            case 5:
+                actors_response = _a.sent();
+                return [4 /*yield*/, actors_response.json()];
+            case 6:
+                actors_data = _a.sent();
+                return [4 /*yield*/, fetch("http://localhost:3000/list/role")];
+            case 7:
+                roles_response = _a.sent();
+                return [4 /*yield*/, roles_response.json()];
+            case 8:
+                roles_data = _a.sent();
+                return [4 /*yield*/, fetch("http://localhost:3000/list/rating")];
+            case 9:
+                ratings_response = _a.sent();
+                return [4 /*yield*/, ratings_response.json()];
+            case 10:
+                ratings_data = _a.sent();
+                actorSelect = document.getElementById("actors");
                 filters = document.getElementById("filter-table");
+                genreSelect = document.getElementById("genres");
+                movies = document.getElementById("filtered-movie-table");
                 filteredMovies = [];
+                genres = [];
+                movies_data.forEach(function (movie) {
+                    if (!genres.includes(movie.genre))
+                        genres.push(movie.genre);
+                });
+                genres.forEach(function (genre) {
+                    var opt = document.createElement("option");
+                    opt.value = opt.text = genre;
+                    genreSelect.appendChild(opt);
+                });
+                actors_data.forEach(function (actor) {
+                    var opt = document.createElement("option");
+                    opt.value = opt.text = actor.name;
+                    actorSelect.appendChild(opt);
+                });
                 filter_data.forEach(function (filter) {
                     var tr = document.createElement("tr");
                     var id = document.createElement("td");
@@ -91,6 +115,18 @@ $(function () { return __awaiter(_this, void 0, void 0, function () {
                                 return dateFrom_1 < new Date(movie.released) &&
                                     new Date(movie.released) < dateTo_1;
                             });
+                            break;
+                        case "actor":
+                            filterAction.textContent = "Starring ".concat(filter.actor);
+                            localFiltered = roles_data
+                                .filter(function (role) { return role.actor.name == filter.actor; })
+                                .map(function (role) { return role.movie; });
+                            break;
+                        case "rating":
+                            filterAction.textContent = "Minimum rating of ".concat(filter.rating);
+                            localFiltered = ratings_data
+                                .filter(function (rating) { return rating.rating >= filter.rating; })
+                                .map(function (rating) { return rating.movie; });
                             break;
                         default:
                             break;

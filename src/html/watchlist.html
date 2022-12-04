@@ -23,6 +23,8 @@
 				<option value="genre">Genre</option>
 				<option value="title">Title</option>
 				<option value="released">Release Date</option>
+				<option value="actor">Starring Actor</option>
+				<option value="rating">Minimum Rating</option>
 			</select>
 			<h4>Genre:</h4>
 			<select name="genre" id="genres"></select>
@@ -31,10 +33,12 @@
 			<h4>Release Date:</h4>
 			<input type="date" name="dateFrom" /> to
 			<input type="date" name="dateTo" />
+			<h4>Starring Actor:</h4>
+			<select name="actor" id="actors"></select>
+			<h4>Minimum Rating:</h4>
+			<input type="number" name="rating" min="0" value="0" />
 			<br />
 			<input type="submit" value="Add Filter" />
-			<!-- TODO: Add filters on actors starring -->
-			<!-- TODO: Add filters on movie rating -->
 		</form>
 		<h3>Current Filters:</h3>
 		<table id="filter-table">

@@ -19,4 +19,10 @@ export class WatchlistFilter {
 
 	@Column({ default: null })
 	dateTo: Date;
+
+	@Column({ default: null })
+	actor: string;
+
+	@Column({ default: null })
+	rating: number;
 }

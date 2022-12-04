@@ -132,7 +132,8 @@ AppDataSource.initialize()
 
 		app.post("/add/filter", async (req, res) => {
 			let filter = new WatchlistFilter();
-			let { filterType, genre, dateFrom, dateTo, title } = req.body;
+			let { filterType, genre, dateFrom, dateTo, title, actor, rating } =
+				req.body;
 			filter.filterType = filterType;
 			switch (filterType) {
 				case "genre":
@@ -151,6 +152,18 @@ AppDataSource.initialize()
 					if (dateFrom && dateTo) {
 						filter.dateFrom = dateFrom;
 						filter.dateTo = dateTo;
+						await filterRepo.save(filter);
+					}
+					break;
+				case "actor":
+					if (actor) {
+						filter.actor = actor;
+						await filterRepo.save(filter);
+					}
+					break;
+				case "rating":
+					if (rating) {
+						filter.rating = rating;
 						await filterRepo.save(filter);
 					}
 					break;

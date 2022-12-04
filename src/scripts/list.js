@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 $(function () { return __awaiter(_this, void 0, void 0, function () {
-    var actors_response, actors_data, actors, movies_response, movies_data, movies, roles_response, roles_data, roles, ratings_response, ratings_data, ratings;
+    var actors_response, actors_data, movies_response, movies_data, roles_response, roles_data, ratings_response, ratings_data, actors, movies, ratings, roles;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, fetch("http://localhost:3000/list/actor")];
@@ -45,7 +45,28 @@ $(function () { return __awaiter(_this, void 0, void 0, function () {
                 return [4 /*yield*/, actors_response.json()];
             case 2:
                 actors_data = _a.sent();
+                return [4 /*yield*/, fetch("http://localhost:3000/list/movie")];
+            case 3:
+                movies_response = _a.sent();
+                return [4 /*yield*/, movies_response.json()];
+            case 4:
+                movies_data = _a.sent();
+                return [4 /*yield*/, fetch("http://localhost:3000/list/role")];
+            case 5:
+                roles_response = _a.sent();
+                return [4 /*yield*/, roles_response.json()];
+            case 6:
+                roles_data = _a.sent();
+                return [4 /*yield*/, fetch("http://localhost:3000/list/rating")];
+            case 7:
+                ratings_response = _a.sent();
+                return [4 /*yield*/, ratings_response.json()];
+            case 8:
+                ratings_data = _a.sent();
                 actors = document.getElementById("actor-table");
+                movies = document.getElementById("movie-table");
+                ratings = document.getElementById("rating-table");
+                roles = document.getElementById("role-table");
                 actors_data.forEach(function (actor) {
                     var tr = document.createElement("tr");
                     var name = document.createElement("td");
@@ -53,13 +74,6 @@ $(function () { return __awaiter(_this, void 0, void 0, function () {
                     tr.appendChild(name);
                     actors.appendChild(tr);
                 });
-                return [4 /*yield*/, fetch("http://localhost:3000/list/movie")];
-            case 3:
-                movies_response = _a.sent();
-                return [4 /*yield*/, movies_response.json()];
-            case 4:
-                movies_data = _a.sent();
-                movies = document.getElementById("movie-table");
                 movies_data.forEach(function (movie) {
                     var tr = document.createElement("tr");
                     var title = document.createElement("td");
@@ -70,17 +84,10 @@ $(function () { return __awaiter(_this, void 0, void 0, function () {
                     released.textContent = date.toDateString();
                     tr.appendChild(released);
                     var genre = document.createElement("td");
-                    genre.textContent = capitalize(movie.genre);
+                    genre.textContent = movie.genre;
                     tr.appendChild(genre);
                     movies.appendChild(tr);
                 });
-                return [4 /*yield*/, fetch("http://localhost:3000/list/role")];
-            case 5:
-                roles_response = _a.sent();
-                return [4 /*yield*/, roles_response.json()];
-            case 6:
-                roles_data = _a.sent();
-                roles = document.getElementById("role-table");
                 roles_data.forEach(function (role) {
                     var tr = document.createElement("tr");
                     var movie = document.createElement("td");
@@ -91,13 +98,6 @@ $(function () { return __awaiter(_this, void 0, void 0, function () {
                     tr.appendChild(actor);
                     roles.appendChild(tr);
                 });
-                return [4 /*yield*/, fetch("http://localhost:3000/list/rating")];
-            case 7:
-                ratings_response = _a.sent();
-                return [4 /*yield*/, ratings_response.json()];
-            case 8:
-                ratings_data = _a.sent();
-                ratings = document.getElementById("rating-table");
                 ratings_data.forEach(function (rating) {
                     var tr = document.createElement("tr");
                     var movie = document.createElement("td");
@@ -112,7 +112,4 @@ $(function () { return __awaiter(_this, void 0, void 0, function () {
         }
     });
 }); });
-var capitalize = function (str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-};
 //# sourceMappingURL=list.js.map
