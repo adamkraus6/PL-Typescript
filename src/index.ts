@@ -1,3 +1,4 @@
+// Authors: Adam Kraus, Hunter Hufstutler, Chami Senerath
 import { Actor } from "./entity/Actor";
 import { AppDataSource } from "./data-source";
 import { Movie } from "./entity/Movie";

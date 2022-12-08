@@ -1,3 +1,4 @@
+// Author: Hunter Hufstutler
 $(async () => {
 	let movies_response = await fetch("http://localhost:3000/list/movie");
 	let movies_data = await movies_response.json();

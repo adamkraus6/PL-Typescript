@@ -1,3 +1,4 @@
+// Author: Adam Kraus
 import "reflect-metadata";
 import { Actor } from "./entity/Actor";
 import { DataSource } from "typeorm";

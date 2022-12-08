@@ -1,3 +1,4 @@
+// Author: Adam Kraus
 import { Entity, PrimaryGeneratedColumn, JoinColumn, ManyToOne } from "typeorm";
 import { Actor } from "./Actor";
 import { Movie } from "./Movie";

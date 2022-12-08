@@ -1,3 +1,4 @@
+// Author: Adam Kraus
 $(async () => {
 	let menu = document.getElementById("menu");
 	let ul = document.createElement("ul");

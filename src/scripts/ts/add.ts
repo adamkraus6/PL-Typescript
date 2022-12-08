@@ -1,3 +1,4 @@
+// Author: Chami Senerath
 $(async () => {
 	let actors_response = await fetch("http://localhost:3000/list/actor");
 	let actors_data = await actors_response.json();

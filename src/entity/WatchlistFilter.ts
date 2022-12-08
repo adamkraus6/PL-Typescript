@@ -1,3 +1,4 @@
+// Author: Adam Kraus
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity()
