@@ -35,6 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
+// Author: Chami Senerath
 $(function () { return __awaiter(_this, void 0, void 0, function () {
     var actors_response, actors_data, movies_response, movies_data, actors, movies, movies2;
     return __generator(this, function (_a) {

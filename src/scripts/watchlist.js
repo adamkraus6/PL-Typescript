@@ -35,6 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
+// Author: Hunter Hufstutler
 $(function () { return __awaiter(_this, void 0, void 0, function () {
     var movies_response, movies_data, filter_response, filter_data, actors_response, actors_data, roles_response, roles_data, ratings_response, ratings_data, actorSelect, filters, genreSelect, movies, filteredMovies, genres;
     return __generator(this, function (_a) {

@@ -35,6 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
+// Author: Adam Kraus
 $(function () { return __awaiter(_this, void 0, void 0, function () {
     var menu, ul, links;
     return __generator(this, function (_a) {
